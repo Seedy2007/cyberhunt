@@ -1,205 +1,130 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Base font scaling */
+html {
+  font-size: 18px; /* Equivalent to ~112.5% zoom */
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #0d0d0d;
   color: #e0e0e0;
   font-family: 'Segoe UI', 'Roboto', sans-serif;
-  line-height: 1.6;
-  padding: 40px 20px;
+  line-height: 1.8;
+  padding: 50px 30px;
 }
 
 /* Header */
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
 header h1 {
-  font-size: 2.8em;
-  color: #00ffe7;
-  text-shadow: 0 0 10px #00ffe7;
-  animation: glowFade 2s ease-in-out infinite alternate;
+  font-size: 3.2em;
 }
 
 /* Main content */
 main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #00ffe7;
+  max-width: 1000px;
+  padding: 30px;
 }
 
 /* Section titles */
 section h2 {
-  font-size: 1.8em;
-  color: #00ffcc;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 5px;
-  text-shadow: 0 0 5px #00ffcc;
+  font-size: 2.2em;
 }
 
 /* Subheadings */
 section h3 {
-  font-size: 1.3em;
-  color: #ff00c8;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  font-size: 1.6em;
 }
 
 /* Paragraphs and lists */
 p, li {
-  margin-bottom: 10px;
+  font-size: 1.1em;
+  margin-bottom: 12px;
 }
 
 ul {
-  padding-left: 20px;
-}
-
-li::marker {
-  color: #00ffcc;
+  padding-left: 25px;
 }
 
 /* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background-color: #121212;
-  border: 1px solid #333;
-}
-
 th, td {
-  padding: 12px;
-  border: 1px solid #333;
-  text-align: left;
-}
-
-th {
-  background-color: #222;
-  color: #00ffe7;
-}
-
-td {
-  color: #e0e0e0;
-}
-
-tr:hover {
-  background-color: #2a2a2a;
+  padding: 16px;
+  font-size: 1em;
 }
 
 /* Code blocks */
 pre {
-  background-color: #111;
-  color: #00ffcc;
-  padding: 15px;
-  border-radius: 6px;
-  overflow-x: auto;
-  box-shadow: 0 0 10px #00ffcc;
-  margin: 15px 0;
+  font-size: 1em;
+  padding: 20px;
 }
 
 code {
-  font-family: 'Courier New', monospace;
-  font-size: 0.95em;
+  font-size: 1em;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  padding: 40px 25px;
+  font-size: 1em;
+}
+
+.sidebar li {
+  margin-bottom: 25px;
+}
+
+/* Main content shift */
+.main-content {
+  padding: 50px;
+}
+
+/* Quote */
+.intro-quote {
+  font-size: 1.4em;
+  margin-bottom: 35px;
 }
 
 /* Footer */
 footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 0.9em;
-  color: #888;
+  font-size: 1em;
 }
 
-footer a {
-  color: #00ffe7;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #ff00c8;
-  text-shadow: 0 0 5px #ff00c8;
-}
-
-/* Animations */
-@keyframes glowFade {
-  from {
-    text-shadow: 0 0 10px #00ffe7;
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* Reset to default for smaller screens */
   }
-  to {
-    text-shadow: 0 0 20px #00ffe7;
+
+  .container {
+    flex-direction: column;
   }
-}
-/* Layout container */
-.container {
-  display: flex;
-  flex-direction: row;
-}
 
-/* Sidebar styles */
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 220px;
-  background-color: #0d0d0d;
-  border-right: 2px solid #00ffe7;
-  padding: 30px 20px;
-  font-family: 'Courier New', monospace;
-  z-index: 10;
-}
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 2px solid #00ffe7;
+  }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
+  .main-content {
+    padding: 30px 20px;
+  }
 
-.sidebar li {
-  margin-bottom: 20px;
-}
+  main {
+    padding: 20px;
+  }
 
-.sidebar a {
-  color: #00ffe7;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+  header h1 {
+    font-size: 2.4em;
+  }
 
-.sidebar a:hover {
-  color: #ff00c8;
-  text-shadow: 0 0 5px #ff00c8;
-}
+  section h2 {
+    font-size: 1.8em;
+  }
 
-/* Main content shifts right */
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-}
+  section h3 {
+    font-size: 1.3em;
+  }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-.intro-quote {
-  font-size: 1.2em;
-  color: #cccccc;
-  margin-bottom: 30px;
-  text-align: center;
-  font-style: italic;
-  text-shadow: 0 0 5px #00ffe7;
-}
-footer {
-  margin-top: auto;
+  .intro-quote {
+    font-size: 1.2em;
+  }
 }
