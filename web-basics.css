@@ -1,0 +1,148 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.8em;
+  color: #00ffe7;
+  text-shadow: 0 0 10px #00ffe7;
+  animation: glowFade 2s ease-in-out infinite alternate;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffe7;
+}
+
+/* Section titles */
+section h2 {
+  font-size: 1.8em;
+  color: #00ffcc;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Subheadings */
+section h3 {
+  font-size: 1.3em;
+  color: #ff00c8;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs and lists */
+p, li {
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li::marker {
+  color: #00ffcc;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #121212;
+  border: 1px solid #333;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #333;
+  text-align: left;
+}
+
+th {
+  background-color: #222;
+  color: #00ffe7;
+}
+
+td {
+  color: #e0e0e0;
+}
+
+tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* Code blocks */
+pre {
+  background-color: #111;
+  color: #00ffcc;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  box-shadow: 0 0 10px #00ffcc;
+  margin: 15px 0;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+}
+
+footer a {
+  color: #00ffe7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff00c8;
+  text-shadow: 0 0 5px #ff00c8;
+}
+
+/* Animations */
+@keyframes glowFade {
+  from {
+    text-shadow: 0 0 10px #00ffe7;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffe7;
+  }
+}

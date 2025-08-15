@@ -12,9 +12,9 @@
   </header>
 
   <main>
-    <section>
+    <section id="web-lifecycle">
       <h2>🔄 The Web Lifecycle</h2>
-      <pre>You → type site.com → DNS resolves → HTTP request → server responds → page loads</pre>
+      <pre><code>You → type site.com → DNS resolves → HTTP request → server responds → page loads</code></pre>
       <ul>
         <li><strong>Client:</strong> Your browser (Chrome, Firefox)<br>
             🐞 Bug bounty angle: Understand how requests originate to intercept or manipulate them.</li>
@@ -29,19 +29,19 @@
       </ul>
     </section>
 
-    <section>
+    <section id="http-requests">
       <h2>📬 HTTP Requests & Responses</h2>
       <h3>🟦 Request Example</h3>
-      <pre>GET /index.html HTTP/1.1
-Host: example.com</pre>
+      <pre><code>GET /index.html HTTP/1.1
+Host: example.com</code></pre>
       <h3>🟩 Response Example</h3>
-      <pre>HTTP/1.1 200 OK
+      <pre><code>HTTP/1.1 200 OK
 Content-Type: text/html
-Set-Cookie: session=xyz123</pre>
+Set-Cookie: session=xyz123</code></pre>
       <p>🐞 Bug bounty angle: Inspect headers for sensitive data, cookies, and misconfigurations.</p>
     </section>
 
-    <section>
+    <section id="http-methods">
       <h2>🔢 Key HTTP Methods</h2>
       <table>
         <tr><th>Method</th><th>What It Does</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -53,7 +53,7 @@ Set-Cookie: session=xyz123</pre>
       </table>
     </section>
 
-    <section>
+    <section id="http-status-codes">
       <h2>⚠️ Common HTTP Status Codes</h2>
       <table>
         <tr><th>Code</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -66,7 +66,7 @@ Set-Cookie: session=xyz123</pre>
       </table>
     </section>
 
-    <section>
+    <section id="cookies-sessions">
       <h2>🍪 Cookies & Sessions</h2>
       <table>
         <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -77,7 +77,7 @@ Set-Cookie: session=xyz123</pre>
       </table>
     </section>
 
-    <section>
+    <section id="dns-subdomains">
       <h2>🌐 DNS & Subdomain Concepts</h2>
       <table>
         <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -86,10 +86,9 @@ Set-Cookie: session=xyz123</pre>
         <tr><td>DNS</td><td>Maps domain to IP</td><td>Check for zone transfers or misconfigured records.</td></tr>
       </table>
       <h3>🔧 Useful Tool</h3>
-      <pre>subfinder -d target.com</pre>
+      <pre><code>subfinder -d target.com</code></pre>
     </section>
-
-    <section>
+        <section id="devtools-overview">
       <h2>🛠️ DevTools Overview (Press F12)</h2>
       <table>
         <tr><th>Tab</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -102,7 +101,7 @@ Set-Cookie: session=xyz123</pre>
       </table>
     </section>
 
-    <section>
+    <section id="javascript-basics">
       <h2>⚡ JavaScript (Client-side Logic)</h2>
       <ul>
         <li>Executed in the <strong>browser</strong><br>
@@ -113,11 +112,11 @@ Set-Cookie: session=xyz123</pre>
             🐞 Bug bounty angle: Bypass client-side validation or trigger bugs.</li>
       </ul>
       <h3>🧪 Try This in Console:</h3>
-      <pre>alert("Hello Seedy!");
-document.cookie;</pre>
+      <pre><code>alert("Hello Seedy!");
+document.cookie;</code></pre>
     </section>
 
-    <section>
+    <section id="recon-tools">
       <h2>⚙️ Recon Tools Overview</h2>
       <table>
         <tr><th>Tool</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
@@ -128,17 +127,16 @@ document.cookie;</pre>
         <tr><td>DevTools</td><td>Browser inspection</td><td>Live test and debug client-side behavior.</td></tr>
       </table>
     </section>
-    <section>
+
+    <section id="curl-commands">
       <h2>🧪 Common Curl Commands</h2>
-      <pre>
-curl https://httpbin.org/get
+      <pre><code>curl https://httpbin.org/get
 curl -X POST -d "name=seedy" https://httpbin.org/post
-curl -I https://example.com
-      </pre>
+curl -I https://example.com</code></pre>
       <p>🐞 Bug bounty angle: Use curl to test endpoints, manipulate headers, and simulate attacks from the terminal.</p>
     </section>
 
-    <section>
+    <section id="final-checklist">
       <h2>📌 Final Review Checklist ✅</h2>
       <table>
         <tr><th>Concept</th><th>Done?</th></tr>
@@ -153,8 +151,11 @@ curl -I https://example.com
       <p>🐞 Bug bounty angle: Use this checklist before diving into any target—solid fundamentals lead to smarter exploits.</p>
     </section>
   </main>
+
   <footer>
-    <p>Made by <strong>SEEDY ^-^</strong></p>
+    <p>Made by <strong>SEEDY ^-^</strong> | <a href="https://seedy2007.github.io/cyberhunt/">Back to Home</a></p>
   </footer>
 </body>
+
+
 </html>
