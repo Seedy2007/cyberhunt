@@ -41,7 +41,19 @@ main {
   padding: 20px;
   background-color: #1a1a1a;
   border-radius: 8px;
-  box-shadow: 0 0 10px #00ffe7;
+  border: 2px solid #00ffe7;
+  box-shadow:
+    0 0 10px #00ffe7,
+    0 0 20px #00ffe7,
+    0 0 30px #00ffe7;
+  transition: box-shadow 0.3s ease;
+}
+
+main:hover {
+  box-shadow:
+    0 0 15px #ff00c8,
+    0 0 25px #ff00c8,
+    0 0 35px #ff00c8;
 }
 
 /* Section title */
@@ -63,7 +75,9 @@ li {
   text-align: center;
 }
 
+/* Link styling with hover animation */
 a {
+  position: relative;
   color: #00ffcc;
   text-decoration: none;
   font-weight: bold;
@@ -71,9 +85,25 @@ a {
   transition: color 0.3s ease;
 }
 
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff00c8;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
 a:hover {
   color: #ff00c8;
   text-shadow: 0 0 5px #ff00c8;
+}
+
+a:hover::after {
+  transform: scaleX(1);
 }
 
 /* Footer */
@@ -87,3 +117,4 @@ footer {
 footer strong {
   color: #00ffe7;
 }
+
