@@ -2,17 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OWASP Top 10</title>
-  <link rel="stylesheet" href="style.css">
+  <title>OWASP Top 10 – CyberHunt</title>
+  <link rel="stylesheet" href="owasp-top10.css">
+  <script src="scroll-animation.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>🔐 OWASP Top 10</h1>
-    <p>Coming soon: Explore the most critical web security risks.</p>
-  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#a01">A01: Broken Access Control</a></li>
+        <li><a href="#a02">A02: Cryptographic Failures</a></li>
+        <li><a href="#a03">A03: Injection</a></li>
+        <li><a href="#a04">A04: Insecure Design</a></li>
+        <li><a href="#a05">A05: Security Misconfiguration</a></li>
+        <li><a href="#a06">A06: Vulnerable Components</a></li>
+        <li><a href="#a07">A07: Auth Failures</a></li>
+        <li><a href="#a08">A08: Integrity Failures</a></li>
+        <li><a href="#a09">A09: Logging & Monitoring</a></li>
+        <li><a href="#a10">A10: SSRF</a></li>
+      </ul>
+    </nav>
 
-  <footer>
-    <p>Made by <strong>SEEDY ^-^</strong></p>
-  </footer>
+    <div class="main-content">
+      <header>
+        <h1>🛡️ OWASP Top 10</h1>
+        <p class="intro-quote">Understand the most critical web vulnerabilities. Hunt smarter, exploit cleaner.</p>
+      </header>
+
+      <main>
+        <section id="a01">
+          <h2>🔐 A01: Broken Access Control</h2>
+          <p>Access control failures allow attackers to act as users or admins without proper authorization.</p>
+          <ul>
+            <li>Examples: IDOR, privilege escalation, bypassing role checks</li>
+            <li>Common causes: Missing authorization, predictable URLs</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Try accessing other users’ data. Look for endpoints that don’t enforce role or permission checks.</p>
+        </section>
+
+        <section id="a02">
+          <h2>🔒 A02: Cryptographic Failures</h2>
+          <p>Weak or missing encryption exposes sensitive data in transit or at rest.</p>
+          <ul>
+            <li>Examples: No HTTPS, weak TLS, exposed secrets</li>
+            <li>Common causes: Misconfigured SSL, outdated crypto libraries</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Check for plaintext transmission, missing `Secure` flags, or weak TLS versions.</p>
+        </section>
+
+        <section id="a03">
+          <h2>💉 A03: Injection</h2>
+          <p>Untrusted data sent to interpreters can lead to code execution or data leaks.</p>
+          <ul>
+            <li>Examples: SQLi, XSS, command injection</li>
+            <li>Common causes: Unsanitized input, dynamic queries</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Inject payloads into parameters. Use Burp Intruder or manual fuzzing to find vulnerable inputs.</p>
+        </section>
+
+        <section id="a04">
+          <h2>🧠 A04: Insecure Design</h2>
+          <p>Flaws in logic or architecture that attackers can exploit even if code is secure.</p>
+          <ul>
+            <li>Examples: Insecure workflows, missing rate limits</li>
+            <li>Common causes: Lack of threat modeling, poor UX decisions</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Think like a user. Abuse flows, skip steps, or test edge cases that break logic.</p>
+        </section>
+
+        <section id="a05">
+          <h2>⚙️ A05: Security Misconfiguration</h2>
+          <p>Default settings, verbose errors, and open ports expose systems to attack.</p>
+          <ul>
+            <li>Examples: Directory listing, debug mode, exposed admin panels</li>
+            <li>Common causes: Incomplete hardening, forgotten endpoints</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Scan for open directories, verbose error messages, and forgotten dev tools.</p>
+        </section>
+
+        <section id="a06">
+          <h2>📦 A06: Vulnerable & Outdated Components</h2>
+          <p>Using libraries or platforms with known vulnerabilities can lead to compromise.</p>
+          <ul>
+            <li>Examples: CVEs in jQuery, outdated WordPress plugins</li>
+            <li>Common causes: No patching, legacy dependencies</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Identify tech stack. Search for known CVEs and test for exploitability.</p>
+        </section>
+
+        <section id="a07">
+          <h2>🔑 A07: Identification & Authentication Failures</h2>
+          <p>Weak login mechanisms allow attackers to impersonate users or hijack sessions.</p>
+          <ul>
+            <li>Examples: Brute-forceable logins, session fixation</li>
+            <li>Common causes: Missing MFA, predictable tokens</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Test login endpoints for rate limits, token predictability, and session hijacking.</p>
+        </section>
+
+        <section id="a08">
+          <h2>🧬 A08: Software & Data Integrity Failures</h2>
+          <p>Trusting unverified code or data can lead to tampering or supply chain attacks.</p>
+          <ul>
+            <li>Examples: Insecure deserialization, CI/CD injection</li>
+            <li>Common causes: No integrity checks, unsafe plugins</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Look for places where user input affects backend logic or deployment flows.</p>
+        </section>
+
+        <section id="a09">
+          <h2>📉 A09: Security Logging & Monitoring Failures</h2>
+          <p>Without proper logging, attacks go undetected and uninvestigated.</p>
+          <ul>
+            <li>Examples: No logs, no alerts, delayed response</li>
+            <li>Common causes: Missing audit trails, poor SIEM integration</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Trigger errors and observe response. Look for lack of alerts or logging indicators.</p>
+        </section>
+
+        <section id="a10">
+          <h2>🌐 A10: Server-Side Request Forgery (SSRF)</h2>
+          <p>SSRF tricks the server into making requests to internal systems.</p>
+          <ul>
+            <li>Examples: Accessing metadata services, internal APIs</li>
+            <li>Common causes: Unvalidated URLs, open fetch logic</li>
+          </ul>
+          <p>🐞 <strong>Bug bounty angle:</strong> Inject internal IPs or cloud metadata URLs into fetch parameters. Look for response leaks.</p>
+        </section>
+      </main>
+
+      <footer>
+        <p>Made by <strong>SEEDY ^-^</strong> | <a href="https://seedy2007.github.io/cyberhunt/">Back to Home</a></p>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
+
