@@ -2,17 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tools of the Trade</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Tools of the Trade – CyberHunt</title>
+  <link rel="stylesheet" href="tools.css">
+  <script src="scroll-animation.js" defer></script>
 </head>
 <body>
+  <div class="container">
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#recon-overview">Recon Workflow</a></li>
+      <li><a href="#subfinder">Subfinder</a></li>
+      <li><a href="#httpx">httpx</a></li>
+      <li><a href="#nmap">Nmap</a></li>
+      <li><a href="#ffuf">ffuf</a></li>
+      <li><a href="#burp-suite">Burp Suite</a></li>
+      <li><a href="#workflow-checklist">Checklist</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
   <header>
     <h1>🛠️ Tools of the Trade</h1>
-    <p>Coming soon: Discover the essential tools for bug bounty hunting.</p>
+    <p class="intro-quote">Recon is the map. Exploits are the journey. Know your tools.</p>
   </header>
 
+  <main>
+    <section id="recon-overview">
+      <h2>🔍 Recon Workflow</h2>
+      <p>Start wide, go deep. These tools help you map the attack surface before diving into vulnerabilities.</p>
+      <ul>
+        <li><strong>Workflow:</strong> Subfinder → httpx → Nmap → ffuf → Burp Suite<br>
+            🐞 Bug bounty angle: This chain reveals subdomains, checks for live hosts, scans ports, fuzzes endpoints, and finally inspects requests in real-time.</li>
+      </ul>
+    </section>
+
+    <section id="subfinder">
+      <h2>🌐 Subfinder</h2>
+      <pre><code>subfinder -d target.com</code></pre>
+      <ul>
+        <li><strong>Purpose:</strong> Finds subdomains using passive sources.</li>
+        <li><strong>🐞 Bug bounty angle:</strong> Uncover forgotten or vulnerable subdomains that expand your attack surface.</li>
+      </ul>
+    </section>
+
+    <section id="httpx">
+      <h2>⚡ httpx</h2>
+      <pre><code>httpx -l subdomains.txt -status-code -title</code></pre>
+      <ul>
+        <li><strong>Purpose:</strong> Probes subdomains for HTTP services and metadata.</li>
+        <li><strong>🐞 Bug bounty angle:</strong> Identify live hosts, tech stack, and potential entry points.</li>
+      </ul>
+    </section>
+
+    <section id="nmap">
+      <h2>🔍 Nmap</h2>
+      <pre><code>nmap -sV target.com</code></pre>
+      <ul>
+        <li><strong>Purpose:</strong> Scans ports and detects services.</li>
+        <li><strong>🐞 Bug bounty angle:</strong> Find exposed services, outdated software, or misconfigured ports.</li>
+      </ul>
+    </section>
+
+    <section id="ffuf">
+      <h2>🧪 ffuf</h2>
+      <pre><code>ffuf -u https://target.com/FUZZ -w wordlist.txt</code></pre>
+      <ul>
+        <li><strong>Purpose:</strong> Fuzzes directories, parameters, and endpoints.</li>
+        <li><strong>🐞 Bug bounty angle:</strong> Discover hidden pages, APIs, or vulnerable parameters.</li>
+      </ul>
+    </section>
+
+    <section id="burp-suite">
+      <h2>🛡️ Burp Suite</h2>
+      <ul>
+        <li><strong>Purpose:</strong> Intercepts and manipulates HTTP traffic.</li>
+        <li><strong>🐞 Bug bounty angle:</strong> Modify requests, test for injections, and automate scans.</li>
+      </ul>
+      <h3>🧪 Try This:</h3>
+      <pre><code>Intercept → Modify → Forward → Analyze</code></pre>
+    </section>
+
+    <section id="workflow-checklist">
+      <h2>📌 Final Recon Checklist ✅</h2>
+      <table>
+        <tr><th>Tool</th><th>Used?</th></tr>
+        <tr><td>Subfinder</td><td>[x]</td></tr>
+        <tr><td>httpx</td><td>[x]</td></tr>
+        <tr><td>Nmap</td><td>[x]</td></tr>
+        <tr><td>ffuf</td><td>[x]</td></tr>
+        <tr><td>Burp Suite</td><td>[x]</td></tr>
+      </table>
+      <p>🐞 Bug bounty angle: Use this checklist before diving into any target—recon is half the battle.</p>
+    </section>
+  </main>
+
   <footer>
-    <p>Made by <strong>SEEDY ^-^</strong></p>
+    <p>Made by <strong>SEEDY ^-^</strong> | <a href="https://seedy2007.github.io/cyberhunt/">Back to Home</a></p>
   </footer>
+  </div>
+  </div>
 </body>
 </html>
