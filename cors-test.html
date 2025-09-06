@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>CORS Exploit Test</title>
+  </head>
   <body>
-    <h1>CORS Test</h1>
+    <h1>Testing CredoLab API</h1>
     <script>
       fetch("https://scoring-br.credolab.com/api/track", {
         method: "POST",
@@ -11,12 +14,22 @@
         },
         body: JSON.stringify({
           referenceNumber: "nano-test-001",
-          event: "start"
+          event: "start",
+          metadata: {
+            browser: navigator.userAgent,
+            screen: `${screen.width}x${screen.height}`
+          }
         })
       })
       .then(res => res.text())
-      .then(data => console.log("Response:", data))
-      .catch(err => console.error("Error:", err));
+      .then(data => {
+        console.log("Response:", data);
+        document.body.innerHTML += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        document.body.innerHTML += `<pre style="color:red;">${err}</pre>`;
+      });
     </script>
   </body>
 </html>
