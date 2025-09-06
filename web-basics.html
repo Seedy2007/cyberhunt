@@ -8,172 +8,172 @@
 </head>
 <body>
   <div class="container">
-  <nav class="sidebar">
-    <ul>
-      <li><a href="#web-lifecycle">Web Lifecycle</a></li>
-      <li><a href="#http-requests">HTTP Requests</a></li>
-      <li><a href="#http-methods">HTTP Methods</a></li>
-      <li><a href="#http-status-codes">Status Codes</a></li>
-      <li><a href="#cookies-sessions">Cookies & Sessions</a></li>
-      <li><a href="#dns-subdomains">DNS & Subdomains</a></li>
-      <li><a href="#devtools-overview">DevTools</a></li>
-      <li><a href="#javascript-basics">JavaScript</a></li>
-      <li><a href="#recon-tools">Recon Tools</a></li>
-      <li><a href="#curl-commands">Curl Commands</a></li>
-      <li><a href="#final-checklist">Checklist</a></li>
-    </ul>
-  </nav>
-  <div class="main-content">
-  <header>
-    <h1>🌐 Web Basics</h1>
-    <p class="intro-quote">Strong basics = powerful exploits. Learn the web, see the bugs.</p>
-  </header>
-
-  <main>
-    <section id="web-lifecycle">
-      <h2>🔄 The Web Lifecycle</h2>
-      <pre><code>You → type site.com → DNS resolves → HTTP request → server responds → page loads</code></pre>
+    <nav class="sidebar">
       <ul>
-        <li><strong>Client:</strong> Your browser (Chrome, Firefox)<br>
-            🐞 Bug bounty angle: Understand how requests originate to intercept or manipulate them.</li>
-        <li><strong>Server:</strong> The remote machine running the website<br>
-            🐞 Bug bounty angle: Identify server-side misconfigurations or outdated software.</li>
-        <li><strong>Protocol:</strong> HTTP/HTTPS to communicate<br>
-            🐞 Bug bounty angle: Spot insecure endpoints or downgrade attacks.</li>
-        <li><strong>Request:</strong> You ask the server for something<br>
-            🐞 Bug bounty angle: Modify requests to test for input validation and access control.</li>
-        <li><strong>Response:</strong> The server sends it back<br>
-            🐞 Bug bounty angle: Analyze headers and content for sensitive data leaks.</li>
+        <li><a href="#web-lifecycle">Web Lifecycle</a></li>
+        <li><a href="#http-requests">HTTP Requests</a></li>
+        <li><a href="#http-methods">HTTP Methods</a></li>
+        <li><a href="#http-status-codes">Status Codes</a></li>
+        <li><a href="#cookies-sessions">Cookies & Sessions</a></li>
+        <li><a href="#dns-subdomains">DNS & Subdomains</a></li>
+        <li><a href="#devtools-overview">DevTools</a></li>
+        <li><a href="#javascript-basics">JavaScript</a></li>
+        <li><a href="#recon-tools">Recon Tools</a></li>
+        <li><a href="#curl-commands">Curl Commands</a></li>
+        <li><a href="#final-checklist">Checklist</a></li>
       </ul>
-    </section>
+    </nav>
+    <div class="main-content">
+      <header>
+        <h1>🌐 Web Basics</h1>
+        <p class="intro-quote">Strong basics = powerful exploits. Learn the web, see the bugs.</p>
+      </header>
 
-    <section id="http-requests">
-      <h2>📬 HTTP Requests & Responses</h2>
-      <h3>🟦 Request Example</h3>
-      <pre><code>GET /index.html HTTP/1.1
-Host: example.com</code></pre>
-      <h3>🟩 Response Example</h3>
-      <pre><code>HTTP/1.1 200 OK
-Content-Type: text/html
-Set-Cookie: session=xyz123</code></pre>
-      <p>🐞 Bug bounty angle: Inspect headers for sensitive data, cookies, and misconfigurations.</p>
-    </section>
+      <main>
+        <section id="web-lifecycle">
+          <h2>🔄 The Web Lifecycle</h2>
+          <pre><code>You → type site.com → DNS resolves → HTTP request → server responds → page loads</code></pre>
+          <ul>
+            <li><strong>Client:</strong> Your browser (Chrome, Firefox)<br>
+                🐞 Bug bounty angle: Understand how requests originate to intercept or manipulate them.</li>
+            <li><strong>Server:</strong> The remote machine running the website<br>
+                🐞 Bug bounty angle: Identify server-side misconfigurations or outdated software.</li>
+            <li><strong>Protocol:</strong> HTTP/HTTPS to communicate<br>
+                🐞 Bug bounty angle: Spot insecure endpoints or downgrade attacks.</li>
+            <li><strong>Request:</strong> You ask the server for something<br>
+                🐞 Bug bounty angle: Modify requests to test for input validation and access control.</li>
+            <li><strong>Response:</strong> The server sends it back<br>
+                🐞 Bug bounty angle: Analyze headers and content for sensitive data leaks.</li>
+          </ul>
+        </section>
 
-    <section id="http-methods">
-      <h2>🔢 Key HTTP Methods</h2>
-      <table>
-        <tr><th>Method</th><th>What It Does</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>GET</td><td>Retrieve data</td><td>Check for sensitive data exposed via query parameters.</td></tr>
-        <tr><td>POST</td><td>Submit data</td><td>Test for input validation and injection vulnerabilities.</td></tr>
-        <tr><td>PUT</td><td>Update resource</td><td>Look for unauthorized access or insecure APIs.</td></tr>
-        <tr><td>DELETE</td><td>Remove resource</td><td>Check for privilege escalation or lack of auth.</td></tr>
-        <tr><td>HEAD</td><td>Like GET, no body</td><td>Use for stealthy probing of endpoints.</td></tr>
-      </table>
-    </section>
+        <section id="http-requests">
+          <h2>📬 HTTP Requests & Responses</h2>
+          <h3>🟦 Request Example</h3>
+          <pre><code>GET /index.html HTTP/1.1
+    Host: example.com</code></pre>
+          <h3>🟩 Response Example</h3>
+          <pre><code>HTTP/1.1 200 OK
+    Content-Type: text/html
+    Set-Cookie: session=xyz123</code></pre>
+          <p>🐞 Bug bounty angle: Inspect headers for sensitive data, cookies, and misconfigurations.</p>
+        </section>
 
-    <section id="http-status-codes">
-      <h2>⚠️ Common HTTP Status Codes</h2>
-      <table>
-        <tr><th>Code</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>200</td><td>Success</td><td>Expected response—check content for leaks.</td></tr>
-        <tr><td>301</td><td>Permanent Redirect</td><td>Check for open redirects or auth bypass.</td></tr>
-        <tr><td>302</td><td>Temporary Redirect</td><td>Same as above—test redirect logic.</td></tr>
-        <tr><td>403</td><td>Forbidden</td><td>Try bypassing with headers or methods.</td></tr>
-        <tr><td>404</td><td>Not Found</td><td>Use for fuzzing hidden endpoints.</td></tr>
-        <tr><td>500</td><td>Server Error</td><td>May reveal stack traces or logic flaws.</td></tr>
-      </table>
-    </section>
+        <section id="http-methods">
+          <h2>🔢 Key HTTP Methods</h2>
+          <table>
+            <tr><th>Method</th><th>What It Does</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>GET</td><td>Retrieve data</td><td>Check for sensitive data exposed via query parameters.</td></tr>
+            <tr><td>POST</td><td>Submit data</td><td>Test for input validation and injection vulnerabilities.</td></tr>
+            <tr><td>PUT</td><td>Update resource</td><td>Look for unauthorized access or insecure APIs.</td></tr>
+            <tr><td>DELETE</td><td>Remove resource</td><td>Check for privilege escalation or lack of auth.</td></tr>
+            <tr><td>HEAD</td><td>Like GET, no body</td><td>Use for stealthy probing of endpoints.</td></tr>
+          </table>
+        </section>
 
-    <section id="cookies-sessions">
-      <h2>🍪 Cookies & Sessions</h2>
-      <table>
-        <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>Set-Cookie</td><td>Server stores cookie</td><td>Check for missing Secure/HttpOnly flags.</td></tr>
-        <tr><td>document.cookie</td><td>View cookies via JS</td><td>Test for XSS-accessible cookies.</td></tr>
-        <tr><td>Session Cookie</td><td>Stores login/auth token</td><td>Try hijacking or predicting session tokens.</td></tr>
-        <tr><td>HttpOnly</td><td>Blocks JS access</td><td>Protects against XSS—check if missing.</td></tr>
-      </table>
-    </section>
+        <section id="http-status-codes">
+          <h2>⚠️ Common HTTP Status Codes</h2>
+          <table>
+            <tr><th>Code</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>200</td><td>Success</td><td>Expected response—check content for leaks.</td></tr>
+            <tr><td>301</td><td>Permanent Redirect</td><td>Check for open redirects or auth bypass.</td></tr>
+            <tr><td>302</td><td>Temporary Redirect</td><td>Same as above—test redirect logic.</td></tr>
+            <tr><td>403</td><td>Forbidden</td><td>Try bypassing with headers or methods.</td></tr>
+            <tr><td>404</td><td>Not Found</td><td>Use for fuzzing hidden endpoints.</td></tr>
+            <tr><td>500</td><td>Server Error</td><td>May reveal stack traces or logic flaws.</td></tr>
+          </table>
+        </section>
 
-    <section id="dns-subdomains">
-      <h2>🌐 DNS & Subdomain Concepts</h2>
-      <table>
-        <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>Domain</td><td>example.com</td><td>Start point for recon and enumeration.</td></tr>
-        <tr><td>Subdomain</td><td>blog.example.com</td><td>Look for forgotten or vulnerable subdomains.</td></tr>
-        <tr><td>DNS</td><td>Maps domain to IP</td><td>Check for zone transfers or misconfigured records.</td></tr>
-      </table>
-      <h3>🔧 Useful Tool</h3>
-      <pre><code>subfinder -d target.com</code></pre>
-    </section>
-        <section id="devtools-overview">
-      <h2>🛠️ DevTools Overview (Press F12)</h2>
-      <table>
-        <tr><th>Tab</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>Elements</td><td>View/edit HTML/CSS</td><td>Find hidden inputs or debug info.</td></tr>
-        <tr><td>Console</td><td>Run JS, view errors</td><td>Test for XSS and insecure logic.</td></tr>
-        <tr><td>Network</td><td>Inspect requests</td><td>Analyze headers, tokens, and endpoints.</td></tr>
-        <tr><td>Sources</td><td>View JS files</td><td>Find hidden functions or secrets.</td></tr>
-        <tr><td>Application</td><td>Cookies/storage</td><td>Check for sensitive data in local/session storage.</td></tr>
-        <tr><td>Security</td><td>SSL & HTTPS</td><td>Spot mixed content or weak certs.</td></tr>
-      </table>
-    </section>
+        <section id="cookies-sessions">
+          <h2>🍪 Cookies & Sessions</h2>
+          <table>
+            <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>Set-Cookie</td><td>Server stores cookie</td><td>Check for missing Secure/HttpOnly flags.</td></tr>
+            <tr><td>document.cookie</td><td>View cookies via JS</td><td>Test for XSS-accessible cookies.</td></tr>
+            <tr><td>Session Cookie</td><td>Stores login/auth token</td><td>Try hijacking or predicting session tokens.</td></tr>
+            <tr><td>HttpOnly</td><td>Blocks JS access</td><td>Protects against XSS—check if missing.</td></tr>
+          </table>
+        </section>
 
-    <section id="javascript-basics">
-      <h2>⚡ JavaScript (Client-side Logic)</h2>
-      <ul>
-        <li>Executed in the <strong>browser</strong><br>
-            🐞 Bug bounty angle: Test for DOM-based XSS and logic flaws.</li>
-        <li>Found in files like <code>main.js</code>, <code>app.js</code><br>
-            🐞 Bug bounty angle: Review for insecure functions or hidden features.</li>
-        <li>Can be manipulated via DevTools<br>
-            🐞 Bug bounty angle: Bypass client-side validation or trigger bugs.</li>
-      </ul>
-      <h3>🧪 Try This in Console:</h3>
-      <pre><code>alert("Hello Seedy!");
-document.cookie;</code></pre>
-    </section>
+        <section id="dns-subdomains">
+          <h2>🌐 DNS & Subdomain Concepts</h2>
+          <table>
+            <tr><th>Term</th><th>Meaning</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>Domain</td><td>example.com</td><td>Start point for recon and enumeration.</td></tr>
+            <tr><td>Subdomain</td><td>blog.example.com</td><td>Look for forgotten or vulnerable subdomains.</td></tr>
+            <tr><td>DNS</td><td>Maps domain to IP</td><td>Check for zone transfers or misconfigured records.</td></tr>
+          </table>
+          <h3>🔧 Useful Tool</h3>
+          <pre><code>subfinder -d target.com</code></pre>
+        </section>
+            <section id="devtools-overview">
+          <h2>🛠️ DevTools Overview (Press F12)</h2>
+          <table>
+            <tr><th>Tab</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>Elements</td><td>View/edit HTML/CSS</td><td>Find hidden inputs or debug info.</td></tr>
+            <tr><td>Console</td><td>Run JS, view errors</td><td>Test for XSS and insecure logic.</td></tr>
+            <tr><td>Network</td><td>Inspect requests</td><td>Analyze headers, tokens, and endpoints.</td></tr>
+            <tr><td>Sources</td><td>View JS files</td><td>Find hidden functions or secrets.</td></tr>
+            <tr><td>Application</td><td>Cookies/storage</td><td>Check for sensitive data in local/session storage.</td></tr>
+            <tr><td>Security</td><td>SSL & HTTPS</td><td>Spot mixed content or weak certs.</td></tr>
+          </table>
+        </section>
 
-    <section id="recon-tools">
-      <h2>⚙️ Recon Tools Overview</h2>
-      <table>
-        <tr><th>Tool</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
-        <tr><td>curl</td><td>Make HTTP requests</td><td>Send crafted requests to test endpoints.</td></tr>
-        <tr><td>nmap</td><td>Scan ports/services</td><td>Find exposed services or outdated software.</td></tr>
-        <tr><td>subfinder</td><td>Discover subdomains</td><td>Enumerate attack surface.</td></tr>
-        <tr><td>ffuf</td><td>Fuzz directories/params</td><td>Find hidden endpoints or parameters.</td></tr>
-        <tr><td>DevTools</td><td>Browser inspection</td><td>Live test and debug client-side behavior.</td></tr>
-      </table>
-    </section>
+        <section id="javascript-basics">
+          <h2>⚡ JavaScript (Client-side Logic)</h2>
+          <ul>
+            <li>Executed in the <strong>browser</strong><br>
+                🐞 Bug bounty angle: Test for DOM-based XSS and logic flaws.</li>
+            <li>Found in files like <code>main.js</code>, <code>app.js</code><br>
+                🐞 Bug bounty angle: Review for insecure functions or hidden features.</li>
+            <li>Can be manipulated via DevTools<br>
+                🐞 Bug bounty angle: Bypass client-side validation or trigger bugs.</li>
+          </ul>
+          <h3>🧪 Try This in Console:</h3>
+          <pre><code>alert("Hello Seedy!");
+    document.cookie;</code></pre>
+        </section>
 
-    <section id="curl-commands">
-      <h2>🧪 Common Curl Commands</h2>
-      <pre><code>curl https://httpbin.org/get
-curl -X POST -d "name=seedy" https://httpbin.org/post
-curl -I https://example.com</code></pre>
-      <p>🐞 Bug bounty angle: Use curl to test endpoints, manipulate headers, and simulate attacks from the terminal.</p>
-    </section>
+        <section id="recon-tools">
+          <h2>⚙️ Recon Tools Overview</h2>
+          <table>
+            <tr><th>Tool</th><th>Purpose</th><th>🐞 Bug Bounty Angle</th></tr>
+            <tr><td>curl</td><td>Make HTTP requests</td><td>Send crafted requests to test endpoints.</td></tr>
+            <tr><td>nmap</td><td>Scan ports/services</td><td>Find exposed services or outdated software.</td></tr>
+            <tr><td>subfinder</td><td>Discover subdomains</td><td>Enumerate attack surface.</td></tr>
+            <tr><td>ffuf</td><td>Fuzz directories/params</td><td>Find hidden endpoints or parameters.</td></tr>
+            <tr><td>DevTools</td><td>Browser inspection</td><td>Live test and debug client-side behavior.</td></tr>
+          </table>
+        </section>
 
-    <section id="final-checklist">
-      <h2>📌 Final Review Checklist ✅</h2>
-      <table>
-        <tr><th>Concept</th><th>Done?</th></tr>
-        <tr><td>Client/Server Understanding</td><td>[x]</td></tr>
-        <tr><td>HTTP Methods & Status Codes</td><td>[x]</td></tr>
-        <tr><td>Cookies & Sessions</td><td>[x]</td></tr>
-        <tr><td>DevTools Navigation</td><td>[x]</td></tr>
-        <tr><td>DNS & Subdomain Basics</td><td>[x]</td></tr>
-        <tr><td>cURL Practice</td><td>[x]</td></tr>
-        <tr><td>JavaScript Console Usage</td><td>[x]</td></tr>
-      </table>
-      <p>🐞 Bug bounty angle: Use this checklist before diving into any target—solid fundamentals lead to smarter exploits.</p>
-    </section>
-  </main>
+        <section id="curl-commands">
+          <h2>🧪 Common Curl Commands</h2>
+          <pre><code>curl https://httpbin.org/get
+    curl -X POST -d "name=seedy" https://httpbin.org/post
+    curl -I https://example.com</code></pre>
+          <p>🐞 Bug bounty angle: Use curl to test endpoints, manipulate headers, and simulate attacks from the terminal.</p>
+        </section>
 
-  <footer>
-    <p>Made by <strong>SEEDY ^-^</strong> | <a href="https://seedy2007.github.io/cyberhunt/">Back to Home</a></p>
-  </footer>
-  </div>
+        <section id="final-checklist">
+          <h2>📌 Final Review Checklist ✅</h2>
+          <table>
+            <tr><th>Concept</th><th>Done?</th></tr>
+            <tr><td>Client/Server Understanding</td><td>[x]</td></tr>
+            <tr><td>HTTP Methods & Status Codes</td><td>[x]</td></tr>
+            <tr><td>Cookies & Sessions</td><td>[x]</td></tr>
+            <tr><td>DevTools Navigation</td><td>[x]</td></tr>
+            <tr><td>DNS & Subdomain Basics</td><td>[x]</td></tr>
+            <tr><td>cURL Practice</td><td>[x]</td></tr>
+            <tr><td>JavaScript Console Usage</td><td>[x]</td></tr>
+          </table>
+          <p>🐞 Bug bounty angle: Use this checklist before diving into any target—solid fundamentals lead to smarter exploits.</p>
+        </section>
+      </main>
+
+      <footer>
+        <p>Made by <strong>SEEDY ^-^</strong> | <a href="https://seedy2007.github.io/cyberhunt/">Back to Home</a></p>
+      </footer>
+    </div>
   </div>
 </body>
 </html>

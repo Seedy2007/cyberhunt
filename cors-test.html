@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CORS Test</h1>
+    <script>
+      fetch("https://scoring-br.credolab.com/api/track", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer 61cd2abdbead42daa690c7d70d229bdba2e429e64cc44feb9c227f5618335966",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          referenceNumber: "nano-test-001",
+          event: "start"
+        })
+      })
+      .then(res => res.text())
+      .then(data => console.log("Response:", data))
+      .catch(err => console.error("Error:", err));
+    </script>
+  </body>
+</html>
